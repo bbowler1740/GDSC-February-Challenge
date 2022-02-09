@@ -63,21 +63,22 @@ int main()
 
             if (i < indexVector.size() - 1) {
 
-                cout << testInput.at(i) << ", ";
+                cout << testInput.at(indexVector.at(i)) << ", ";
 
             }
 
             else if (i == indexVector.size() - 1) {
 
-                cout << testInput.at(i) << " }";
+                cout << testInput.at(indexVector.at(i)) << " }";
 
             }
 
-            sum += testInput.at(i);
+            sum += testInput.at(indexVector.at(i));
 
         }
 
         cout << " Sum of mapping: " << sum << "\n";
+        count++;
 
     }
 
