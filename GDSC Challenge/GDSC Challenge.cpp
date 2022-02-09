@@ -11,11 +11,9 @@ int main()
 
     vector<vector<int>> answerVector = challengeFunction(testInput, targetSum);
 
-    cout << "Test Input: { ";
+    cout << "Test Vector: { ";
 
     for (int i = 0; i < testInput.size(); i++) {
-
-       
 
         if (i < testInput.size() - 1) {
 
@@ -25,66 +23,64 @@ int main()
 
         else if (i == testInput.size() - 1) {
 
-            cout << testInput.at(i);
+            cout << testInput.at(i) << " }" << "\n";;
 
         }
 
     }
 
-    cout << " }";
-    cout << " Target: " << targetSum;
-    cout << "\n\n";
+    cout << "Target Sum: " << targetSum <<"\n\n";
 
-    int vectorCount = 1;
-    for (vector<int> vector : answerVector) {
+    if (answerVector.empty()) {
+        cout << "No possible quadruples summing to " << targetSum << " in Test Vector.\n";
+    }
 
+    int count = 1;
+    for (vector<int> indexVector : answerVector) {
+
+        cout << "Index Vector (" << count << "): { ";
+
+        for (int i = 0; i < indexVector.size(); i++) {
+
+            if (i < indexVector.size() - 1) {
+
+                cout << indexVector.at(i) << ", ";
+
+            }
+
+            else if (i == indexVector.size() - 1) {
+
+                cout << indexVector.at(i) << " }";
+
+            }
+
+        }
+
+
+        cout << " Mapping against Test Vector: { ";
         int sum = 0;
+        for (int i = 0; i < indexVector.size(); i++) {
 
-        cout << "Index Vector (" << vectorCount << "): { ";
+            if (i < indexVector.size() - 1) {
 
-        for (int i = 0; i < vector.size(); i++) {
-            
-            if (i < vector.size() - 1) {
-
-                cout << vector.at(i) << ", ";
-
-            } 
-
-            else if (i == vector.size() - 1) {
-
-                cout << vector.at(i);
+                cout << testInput.at(i) << ", ";
 
             }
+
+            else if (i == indexVector.size() - 1) {
+
+                cout << testInput.at(i) << " }";
+
+            }
+
+            sum += testInput.at(i);
 
         }
 
-        cout << " }";
-
-        cout << " Input mapping: { ";
-
-        for (int i = 0; i < vector.size(); i++) {
-
-            if (i < vector.size() - 1) {
-
-                cout << testInput.at(vector.at(i)) << ", ";
-
-            }
-
-            else if (i == vector.size() - 1) {
-
-                cout << testInput.at(vector.at(i));
-
-            }
-
-            int value = testInput.at(i);
-            sum += value;
-
-        }
-
-        cout << " }" << " Sum: " << sum << "\n";
-        vectorCount++;
+        cout << " Sum of mapping: " << sum << "\n";
 
     }
+
 
     return 0;
 
