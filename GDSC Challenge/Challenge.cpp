@@ -4,7 +4,7 @@ using namespace std;
 
 vector<vector<int>> challengeFunction(vector<int> inputVector, int target) {
 
-	//Write a function that takes a non-empty vector and returns a quadruple* that matches a targetted sum. 
+	//Write a function that takes a non-empty vector and returns a vector of all quadruples* that match the targetted sum. 
 	//The order of returned quadruples does not matter.
 	//If no vector is found that matches the target sum, return an empty vector. 
 	//* A quadruple is a vector that contains only 4 elements.
